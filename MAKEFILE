@@ -1,0 +1,10 @@
+touch: touch.exe
+
+clean:
+	del touch.exe touch.obj
+
+touch.exe: touch.obj
+	link /NOLOGO touch.obj
+
+touch.obj: touch.cpp
+	cl /c /nologo /O1 touch.cpp
