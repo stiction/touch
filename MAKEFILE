@@ -1,10 +1,13 @@
 touch: touch.exe
 
 clean:
-	del touch.exe touch.obj
+	del touch.exe touch.obj touch.res
 
-touch.exe: touch.obj
-	link /NOLOGO touch.obj
+touch.exe: touch.obj touch.res
+	link /NOLOGO touch.obj touch.res
 
 touch.obj: touch.cpp
 	cl /c /nologo /O1 touch.cpp
+
+touch.res: touch.rc touch.ico
+	rc touch.rc
